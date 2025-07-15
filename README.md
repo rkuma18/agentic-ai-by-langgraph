@@ -1,34 +1,62 @@
-# Agentic AI by LangGraph
+# 🚀 Agentic AI by LangGraph
 
-This repository contains workflows and demos for building agentic AI applications using [LangGraph](https://github.com/langchain-ai/langgraph).
+A collection of modern, modular agentic AI workflows and demos built with [LangGraph](https://github.com/langchain-ai/langgraph).
 
-## Project Overview
-- **Workflows:**
-  - BMI calculation
-  - Simple LLM workflow
-  - Prompt chaining
-- **Tech:** Python, Jupyter Notebooks
+---
 
-## Getting Started
-1. Clone the repository:
+## 📂 Project Overview
+
+**Current Workflows:**
+- `1_bmi_workflow.ipynb` — BMI calculation workflow
+- `2_simple_llm_workflow.ipynb` — Simple LLM Q&A workflow
+- `3_prompt_chaining.ipynb` — Prompt chaining demo
+- `4_batsman_workflow.ipynb` — Cricket batsman stats analyzer
+- `5_UPSC_essay_workflow.ipynb` — UPSC essay workflow
+
+**Tech Stack:**
+- Python 3.13+
+- Jupyter Notebooks
+- LangGraph, LangChain, OpenAI
+
+> **More workflows and features coming soon!**
+
+---
+
+## ⚡ Getting Started
+
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/rkuma18/agentic-ai-by-langgraph.git
    cd agentic-ai-by-langgraph
    ```
-2. Create a virtual environment and install dependencies:
+2. **Set up your environment:**
    ```bash
    python -m venv myenv
    source myenv/bin/activate
    pip install -r requirements.txt
    ```
-3. Run the notebooks using Jupyter:
+3. **Run the notebooks:**
    ```bash
    jupyter notebook
    ```
 
-## Notes
-- **Do not commit your `.env` file or any secrets.**
-- For API keys and environment variables, use a `.env` file locally (see `.gitignore`).
+---
 
-## License
+## 🔑 Environment & Secrets
+- **Never commit your `.env` file or any secrets.**
+- Store API keys and environment variables in a local `.env` file (see `.gitignore`).
+- Example usage:
+  ```python
+  from dotenv import load_dotenv
+  load_dotenv()
+  ```
+
+---
+
+## 📢 Contributing
+Pull requests and suggestions are welcome! More workflows and improvements are on the way.
+
+---
+
+## 📄 License
 MIT 
