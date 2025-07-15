@@ -1,6 +1,6 @@
-# 🚀 Agentic AI by LangGraph
+# Agentic AI by LangGraph
 
-A collection of modern, modular agentic AI workflows and demos built with [LangGraph](https://github.com/langchain-ai/langgraph).
+A collection of modular agentic AI workflows and demos built with [LangGraph](https://github.com/langchain-ai/langgraph).
 
 ---
 
@@ -22,7 +22,7 @@ A collection of modern, modular agentic AI workflows and demos built with [LangG
 
 ---
 
-## ⚡ Getting Started
+## Getting Started
 
 1. **Clone the repository:**
    ```bash
@@ -42,7 +42,7 @@ A collection of modern, modular agentic AI workflows and demos built with [LangG
 
 ---
 
-## 🔑 Environment & Secrets
+## Environment & Secrets
 - **Never commit your `.env` file or any secrets.**
 - Store API keys and environment variables in a local `.env` file (see `.gitignore`).
 - Example usage:
