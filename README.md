@@ -12,6 +12,8 @@ A collection of modular agentic AI workflows and demos built with [LangGraph](ht
 - `3_prompt_chaining.ipynb` — Prompt chaining demo
 - `4_batsman_workflow.ipynb` — Cricket batsman stats analyzer
 - `5_UPSC_essay_workflow.ipynb` — UPSC essay workflow
+- `6_quadratic_equation_workflow.ipynb` — Quadratic equation solver workflow
+- `7_review_reply_workflow.ipynb` — Automated review reply generator workflow
 
 **Tech Stack:**
 - Python 3.13+
