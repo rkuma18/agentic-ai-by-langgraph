@@ -14,6 +14,7 @@ A collection of modular agentic AI workflows and demos built with [LangGraph](ht
 - `5_UPSC_essay_workflow.ipynb` — UPSC essay workflow
 - `6_quadratic_equation_workflow.ipynb` — Quadratic equation solver workflow
 - `7_review_reply_workflow.ipynb` — Automated review reply generator workflow
+- `8_X_post_generator.ipynb` - Loop in Langchain
 
 **Tech Stack:**
 - Python 3.13+
