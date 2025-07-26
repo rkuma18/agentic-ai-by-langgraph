@@ -1,8 +1,3 @@
-Here’s your updated modern `README.md` with the `<details>` block containing the streaming chatbot example **removed** as requested:
-
----
-
-````markdown
 # 🤖 Agentic AI Workflows with LangGraph
 
 A growing collection of modular, agentic AI workflows built using [LangGraph](https://github.com/langchain-ai/langgraph), [LangChain](https://github.com/langchain-ai/langchain), and OpenAI LLMs.
@@ -116,7 +111,3 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 > Built with ❤️ using LangGraph, LangChain, and OpenAI.
-
-```
-
-```
