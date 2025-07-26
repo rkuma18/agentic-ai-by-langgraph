@@ -1,4 +1,4 @@
-# 🤖 Agentic AI Workflows with LangGraph
+# Agentic AI Workflows with LangGraph
 
 A growing collection of modular, agentic AI workflows built using [LangGraph](https://github.com/langchain-ai/langgraph), [LangChain](https://github.com/langchain-ai/langchain), and OpenAI LLMs.
 
@@ -9,7 +9,7 @@ A growing collection of modular, agentic AI workflows built using [LangGraph](ht
 
 ---
 
-## 📂 Project Overview
+## Project Overview
 
 **Current Workflows:**
 | # | Filename | Description |
@@ -24,19 +24,19 @@ A growing collection of modular, agentic AI workflows built using [LangGraph](ht
 | 8 | `8_X_post_generator.ipynb` | Loop-based X (Twitter) post creator |
 | 9 | `9_stream_chat_workflow.py` | Streaming chatbot with LangGraph and memory checkpointing |
 
-> ⚙️ *More workflows coming soon! Stay tuned.*
+> *More workflows coming soon! Stay tuned.*
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
-### 🔧 1. Clone the Repository
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/rkuma18/agentic-ai-by-langgraph.git
 cd agentic-ai-by-langgraph
 ````
 
-### 🐍 2. Set Up Environment
+### 2. Set Up Environment
 
 ```bash
 python -m venv myenv
@@ -44,7 +44,7 @@ source myenv/bin/activate    # On Windows: myenv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 📒 3. Run Workflows
+### 3. Run Workflows
 
 ```bash
 jupyter notebook  # for .ipynb files
@@ -53,7 +53,7 @@ python 9_stream_chat_workflow.py  # for chat workflow
 
 ---
 
-## 🧠 Tech Stack
+## Tech Stack
 
 * **LangGraph** – State-driven agentic workflows
 * **LangChain** – Language model orchestration
@@ -64,7 +64,7 @@ python 9_stream_chat_workflow.py  # for chat workflow
 
 ---
 
-## 🔐 Environment Setup
+## Environment Setup
 
 Create a `.env` file in the root directory to securely store secrets like your OpenAI API key:
 
@@ -79,11 +79,11 @@ from dotenv import load_dotenv
 load_dotenv()
 ```
 
-✅ `.env` is already included in `.gitignore` for your safety.
+`.env` is already included in `.gitignore` for your safety.
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Got a new workflow idea or want to improve an existing one? Contributions are welcome!
 
@@ -96,13 +96,13 @@ Pull requests, ideas, and issues are encouraged.
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the [MIT License](LICENSE).
 
 ---
 
-## 🌟 Connect with Me
+## Connect with Me
 
 * GitHub: [@rkuma18](https://github.com/rkuma18)
 * Twitter/X: [@rkuma07](https://x.com/rkuma07) 
