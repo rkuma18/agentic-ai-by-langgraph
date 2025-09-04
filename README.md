@@ -11,11 +11,11 @@ A comprehensive collection of modular, agentic AI workflows built using [LangGra
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 
 This project demonstrates the power of LangGraph for building sophisticated AI workflows, from simple calculations to interactive chatbots with persistent memory. Each workflow showcases different aspects of agentic AI development.
 
-### 🔥 Featured Workflows
+### Featured Workflows
 
 | # | Filename | Description | Type |
 |--|----------|-------------|------|
@@ -29,7 +29,7 @@ This project demonstrates the power of LangGraph for building sophisticated AI w
 | 8 | `8_X_post_generator.ipynb` | Loop-based X (Twitter) post creator | Notebook |
 | 9 | `9_basic_chatbot.ipynb` | Basic chatbot workflow | Notebook |
 
-### 💬 Interactive Chatbot (New!)
+### Interactive Chatbot (New!)
 
 The **Chatbot/** directory contains a fully-featured, production-ready chatbot with:
 
@@ -61,7 +61,7 @@ The **Chatbot/** directory contains a fully-featured, production-ready chatbot w
 
 ---
 
-## 🛠️ Quickstart
+## Quickstart
 
 ### 1. Clone the Repository
 ```bash
@@ -105,7 +105,7 @@ streamlit run streamlit_frontend.py           # Basic version
 
 ---
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 ### Core Technologies
 - **LangGraph** – State-driven agentic workflows and conversation management
@@ -136,7 +136,7 @@ streamlit run streamlit_frontend.py           # Basic version
 
 ---
 
-## 🔧 Environment Setup
+## Environment Setup
 
 ### 1. API Configuration
 Create a `.env` file in the root directory:
@@ -157,7 +157,7 @@ The chatbot automatically creates and manages its SQLite database (`chatbot.db`)
 
 ---
 
-## 📱 Using the Chatbot
+## Using the Chatbot
 
 ### Getting Started
 
@@ -197,7 +197,7 @@ The chatbot automatically creates and manages its SQLite database (`chatbot.db`)
 
 ---
 
-## 🧪 Development & Testing
+## Development & Testing
 
 ### Running Tests
 ```bash
@@ -221,16 +221,16 @@ jupyter notebook 1_bmi_workflow.ipynb
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Here's how you can help:
 
 ### Ways to Contribute
-- 🐛 **Report Bugs**: Open an issue with detailed descriptions
-- 💡 **Suggest Features**: Share your ideas for new workflows
-- 🔧 **Code Contributions**: Submit pull requests with improvements
-- 📚 **Documentation**: Help improve docs and examples
-- 🌟 **Star the Repo**: Show your support!
+-  **Report Bugs**: Open an issue with detailed descriptions
+-  **Suggest Features**: Share your ideas for new workflows
+-  **Code Contributions**: Submit pull requests with improvements
+-  **Documentation**: Help improve docs and examples
+-  **Star the Repo**: Show your support!
 
 ### Development Workflow
 ```bash
@@ -250,27 +250,22 @@ git push origin feature/amazing-new-workflow
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.
 
 ---
 
-## 🔗 Connect & Support
+##  Connect & Support
 
 ### Developer
 - **GitHub**: [@rkuma18](https://github.com/rkuma18)
 - **Twitter/X**: [@rkuma07](https://x.com/rkuma07) 
 - **Portfolio**: [Roushan Kumar](https://itsrkumar.com/)
 
-### Project Links
-- **Repository**: [GitHub](https://github.com/rkuma18/agentic-ai-by-langgraph)
-- **Issues**: [Bug Reports](https://github.com/rkuma18/agentic-ai-by-langgraph/issues)
-- **Discussions**: [Community Chat](https://github.com/rkuma18/agentic-ai-by-langgraph/discussions)
-
 ---
 
-## 🎯 Roadmap
+##  Roadmap
 
 ### Upcoming Features
 - [ ] Multi-modal support (images, documents)
