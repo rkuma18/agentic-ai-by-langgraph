@@ -38,10 +38,24 @@ The **Chatbot/** directory contains a fully-featured, production-ready chatbot w
 - **Thread Management**: Organize conversations with automatic title generation
 - **Memory Persistence**: Conversations survive app restarts
 - **Real-time Streaming**: Instant AI responses with typing indicators
+- **Tool Integration**: Advanced chatbot with calculator, stock prices, and web search
 
 #### Chatbot Features:
+
+**🔧 Tool-Enabled Chatbot (Latest!)**
+- `v1_streamlit_frontend_tool.py` - Advanced chatbot with integrated tools
+- `v1_langgraph_tool_backend.py` - Backend with calculator, stock lookup, and web search
+- **Tools Available**:
+  - 🧮 **Calculator**: Basic arithmetic operations (add, subtract, multiply, divide)
+  - 📈 **Stock Prices**: Real-time stock price lookup via Alpha Vantage API
+  - 🔍 **Web Search**: DuckDuckGo search integration for current information
+  - 📊 **Visual Tool Status**: Real-time indicators showing when tools are being used
+
+**💾 Database Chatbot**
 - `streamlit_frontend_database.py` - Main chatbot with database persistence
 - `langgraph_database_backend.py` - LangGraph backend with SQLite checkpointing
+
+**⚡ Streaming Chatbot**
 - `streamlit_frontend_streaming.py` - Streaming version without persistence
 - `streamlit_frontend.py` - Basic version for comparison
 
@@ -70,12 +84,20 @@ jupyter notebook  # for .ipynb files
 ```
 
 #### Interactive Chatbot
+
+**🔧 Tool-Enabled Chatbot (Recommended)**
+```bash
+cd Chatbot
+streamlit run v1_streamlit_frontend_tool.py
+```
+
+**💾 Database Chatbot**
 ```bash
 cd Chatbot
 streamlit run streamlit_frontend_database.py
 ```
 
-#### Other Chatbot Versions
+**⚡ Other Chatbot Versions**
 ```bash
 streamlit run streamlit_frontend_streaming.py  # Streaming without persistence
 streamlit run streamlit_frontend.py           # Basic version
@@ -90,6 +112,12 @@ streamlit run streamlit_frontend.py           # Basic version
 - **LangChain** – Language model orchestration and message handling
 - **OpenAI API** – GPT models for intelligent responses
 - **Python 3.13+** – Modern Python with latest features
+
+### Tool Integration
+- **DuckDuckGo Search** – Real-time web search capabilities
+- **Alpha Vantage API** – Stock market data and price lookups
+- **Custom Tools** – Calculator and other utility functions
+- **Tool Orchestration** – Automatic tool selection and execution
 
 ### Frontend & UI
 - **Streamlit** – Modern, responsive web interface
@@ -132,12 +160,29 @@ The chatbot automatically creates and manages its SQLite database (`chatbot.db`)
 ## 📱 Using the Chatbot
 
 ### Getting Started
+
+**🔧 Tool-Enabled Chatbot (Recommended)**
+1. Navigate to the Chatbot directory
+2. Run `streamlit run v1_streamlit_frontend_tool.py`
+3. Open your browser to the provided URL
+4. Start chatting with access to tools!
+
+**💾 Database Chatbot**
 1. Navigate to the Chatbot directory
 2. Run `streamlit run streamlit_frontend_database.py`
 3. Open your browser to the provided URL
 4. Start chatting!
 
 ### Features
+
+**🔧 Tool-Enabled Chatbot Features:**
+- **Smart Tools**: Calculator, stock prices, and web search
+- **Visual Tool Status**: See when tools are being used with status indicators
+- **Automatic Tool Selection**: AI chooses the right tool for your request
+- **Real-time Tool Execution**: Watch tools work in real-time
+- **Persistent Conversations**: All chats saved with SQLite database
+
+**💾 Database Chatbot Features:**
 - **New Chat**: Start fresh conversations
 - **Conversation History**: Access all previous chats from the sidebar
 - **Auto-titles**: Conversations are automatically titled based on your first message
@@ -236,6 +281,7 @@ This project is licensed under the [MIT License](LICENSE) - see the LICENSE file
 - [ ] Multi-language support
 
 ### Recent Updates
+- ✅ **v2.1**: Added tool-enabled chatbot with calculator, stock prices, and web search
 - ✅ **v2.0**: Added persistent chatbot with database storage
 - ✅ **v1.5**: Implemented real-time streaming responses
 - ✅ **v1.0**: Core workflow collection with Jupyter notebooks

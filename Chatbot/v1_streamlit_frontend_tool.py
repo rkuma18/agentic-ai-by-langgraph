@@ -1,12 +1,9 @@
 import streamlit as st
-from langgraph_database_backend import chatbot, retrieve_all_threads, get_thread_title_from_messages
-from langchain_core.messages import HumanMessage
+from v1_langgraph_tool_backend import chatbot, retrieve_all_threads, get_thread_title_from_messages
+from langchain_core.messages import HumanMessage, AIMessage, ToolMessage
 import uuid
 
-# =========================================
-# Helpers
-# =========================================
-
+# =========================== Utilities ===========================
 def generate_thread_id() -> str:
     return str(uuid.uuid4())
 
@@ -63,14 +60,10 @@ def get_thread_title(thread_id: str) -> str:
 def thread_exists(thread_id: str) -> bool:
     return any(t["id"] == thread_id for t in st.session_state['chat_threads'])
 
-# =========================================
-# Session setup
-# =========================================
+# ======================= Session Initialization ===================
 init_session()
 
-# =========================================
-# Sidebar UI
-# =========================================
+# ============================ Sidebar ============================
 st.sidebar.title('Personal Chatbot')
 
 if st.sidebar.button('New Chat', use_container_width=True):
@@ -89,54 +82,65 @@ for thread in reversed(st.session_state['chat_threads']):
 current_title = get_thread_title(st.session_state['thread_id']) if thread_exists(st.session_state['thread_id']) else "New chat"
 st.subheader(current_title)
 
-# =========================================
-# Main Chat UI
-# =========================================
+# ============================ Main UI ============================
 
-# Render message history
-for message in st.session_state['message_history']:
-    with st.chat_message(message['role']):
-        st.text(message['content'])
+# Render history
+for message in st.session_state["message_history"]:
+    with st.chat_message(message["role"]):
+        st.text(message["content"])
 
-user_input = st.chat_input('Type here')
+user_input = st.chat_input("Type here")
 
 if user_input:
-    # Is this the first user message in this (UI) session?
-    is_first_user_message = not any(m['role'] == 'user' for m in st.session_state['message_history'])
-
-    # If the thread isn't listed yet, this is a brand-new chat → create it now
-    if is_first_user_message and not thread_exists(st.session_state['thread_id']):
-        # Add temporary title, then immediately set from the user message
-        add_thread(st.session_state['thread_id'], title="New chat")
-        set_thread_title_from_text(st.session_state['thread_id'], user_input)
-
-    # Append user message to UI/history
-    st.session_state['message_history'].append({'role': 'user', 'content': user_input})
-    with st.chat_message('user'):
+    # Show user's message
+    st.session_state["message_history"].append({"role": "user", "content": user_input})
+    with st.chat_message("user"):
         st.text(user_input)
 
-    #CONFIG = {'configurable': {'thread_id': st.session_state['thread_id']}}
-
     CONFIG = {
-        'configurable': {
-            'thread_id': st.session_state['thread_id']
-        },
-        'metadata':{
-            'thread_id': st.session_state['thread_id']
-        },
-        'run_name': 'chat_turn'
+        "configurable": {"thread_id": st.session_state["thread_id"]},
+        "metadata": {"thread_id": st.session_state["thread_id"]},
+        "run_name": "chat_turn",
     }
 
-    # Stream assistant response
-    with st.chat_message('assistant'):
-        ai_message = st.write_stream(
-            message_chunk.content
-            for message_chunk, metadata in chatbot.stream(
-                {'messages': [HumanMessage(content=user_input)]},
-                config=CONFIG,
-                stream_mode='messages'
-            )
-        )
+    # Assistant streaming block
+    with st.chat_message("assistant"):
+        # Use a mutable holder so the generator can set/modify it
+        status_holder = {"box": None}
 
-    # Append assistant message to in-memory history
-    st.session_state['message_history'].append({'role': 'assistant', 'content': ai_message})
+        def ai_only_stream():
+            for message_chunk, metadata in chatbot.stream(
+                {"messages": [HumanMessage(content=user_input)]},
+                config=CONFIG,
+                stream_mode="messages",
+            ):
+                # Lazily create & update the SAME status container when any tool runs
+                if isinstance(message_chunk, ToolMessage):
+                    tool_name = getattr(message_chunk, "name", "tool")
+                    if status_holder["box"] is None:
+                        status_holder["box"] = st.status(
+                            f"🔧 Using `{tool_name}` …", expanded=True
+                        )
+                    else:
+                        status_holder["box"].update(
+                            label=f"🔧 Using `{tool_name}` …",
+                            state="running",
+                            expanded=True,
+                        )
+
+                # Stream ONLY assistant tokens
+                if isinstance(message_chunk, AIMessage):
+                    yield message_chunk.content
+
+        ai_message = st.write_stream(ai_only_stream())
+
+        # Finalize only if a tool was actually used
+        if status_holder["box"] is not None:
+            status_holder["box"].update(
+                label="✅ Tool finished", state="complete", expanded=False
+            )
+
+    # Save assistant message
+    st.session_state["message_history"].append(
+        {"role": "assistant", "content": ai_message}
+    )
